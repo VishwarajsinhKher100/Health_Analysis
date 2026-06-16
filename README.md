@@ -33,24 +33,28 @@ Make sure you have Python installed, and you will need an API key from [OpenAI/G
     ```bash
     git clone [https://github.com/VishwarajsinhKher100/Health_Analysis.git](https://github.com/VishwarajsinhKher100/Health_Analysis.git)
     cd health_analysis
+    ```
 
 2. **Create a virtual environment:**
 
     ```bash
     python -m venv venv
     source venv/bin/activate  # On Windows use: venv\Scripts\activate
+    ```
 
 3. **Install dependencies:**
 
     ```bash
     pip install -r requirements.txt
+    ```
 
 # Environment Setup
 
 Create a .env file in the root directory of your project and add your API keys:
 
-    ```bash
-    LLM_API_KEY=your_actual_api_key_here
+```bash
+LLM_API_KEY=your_actual_api_key_here
+```
 
 Note: The .env file is included in .gitignore to protect your API keys.
 
@@ -58,8 +62,9 @@ Note: The .env file is included in .gitignore to protect your API keys.
 
 To run the application locally, execute the following command:
 
-    ```bash
-    streamlit run app.py
+```bash
+streamlit run app.py
+```
 
 # 🔒 Security & Privacy
 
