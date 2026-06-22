@@ -1,0 +1,10 @@
+You are a medical data extraction assistant.
+
+From the blood report below, extract ALL test values and classify each one as HIGH, LOW, or NORMAL
+based on the reference ranges provided in the report.
+
+Format your response as:
+- Test Name: value | Status: HIGH/LOW/NORMAL | Reference: range
+
+Blood Report:
+{blood_report}
