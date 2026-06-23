@@ -53,14 +53,14 @@ cd health_analysis
 
 This project uses python-dotenv to manage model parameters and API configurations. Create a .env file in the root directory:
 
-# 🦙 Llama Model Configuration (Update based on your environment: Groq, Replicate, Ollama, etc.)
-# If using a cloud provider API (e.g., Groq for blazing fast Llama inference):
+🦙 Llama Model Configuration (Update based on your environment: Groq, Replicate, Ollama, etc.)
+If using a cloud provider API (e.g., Groq for blazing fast Llama inference):
 GROQ_API_KEY="your_groq_api_key_here"
 
-# If using local Llama via Ollama, point your base URL here:
-# OLLAMA_BASE_URL="http://localhost:11434"
+If using local Llama via Ollama, point your base URL here:
+OLLAMA_BASE_URL="http://localhost:11434"
 
-# 🩺 Application Hyperparameters
+🩺 Application Hyperparameters
 MODEL_NAME="llama-3.3-70b-versatile"  # Example Llama model variant
 TEMPERATURE="0.2"                    # Kept low to minimize hallucination of medical metrics
 
@@ -68,11 +68,11 @@ TEMPERATURE="0.2"                    # Kept low to minimize hallucination of med
 
 Set up a clean virtual environment and install the verified stack:
 
-# Create and activate environment
+* Create and activate environment
 python -m venv venv
 source venv/bin/activate  # On Windows use: venv\Scripts\activate
 
-# Install requirements
+* Install requirements
 pip install -r requirements.txt
 
 ## 💻 Usage
