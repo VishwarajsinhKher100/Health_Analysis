@@ -1,77 +1,88 @@
-# Health Analysis using LLM API 🩺🤖
+# 🩸 AI Blood Report Analyzer & Indian Diet Planner
 
-An AI-powered health analysis application that leverages Large Language Models (LLMs) to provide insights, summarize medical notes, and analyze health-related queries. 
+An intelligent health companion that parses raw text from blood test reports using LangChain and Llama models to generate an easy-to-understand health summary and a personalized, culturally relevant Indian diet plan. Built with a clean Streamlit interface. 
 
-> **⚠️ MEDICAL DISCLAIMER:** This application is for informational and educational purposes only. It is not intended to be a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.
+⚠️ **CRITICAL MEDICAL DISCLAIMER:** This application is an educational AI tool designed to support wellness. It is NOT a diagnostic tool and does NOT provide professional medical advice, prescription, or treatment. Always consult a certified physician or clinical dietitian before making significant changes to your diet or health regimen based on a laboratory report.
 
 ---
 
 ## 🚀 Features
-
-- **Medical Report Summarizer:** Upload complex medical lab results and get an easy-to-understand summary.
-- **Diet Plan Recommendation:** Recomment diet plan according medial report.
-
-## 🛠️ Tech Stack
-
-- **Language:** Python 3.14
-- **Framework:** Streamlit
-- **LLM API:** Groq llama
-- **Libraries:** LangChain, Dotenv
+* **Raw Report Parsing:** Simply copy-paste the text from your laboratory blood report directly into the dashboard.
+* **Llama-Powered Analysis:** Leverages local or API-driven Llama models to read complex medical jargon and break it down.
+* **Smart Health Summary:** Translates biomarkers (e.g., Hemoglobin, Vitamin D3, Cholesterol, HbA1c) into a clear, plain-language health snapshot highlighting key areas of focus.
+* **Customized Indian Diet Plan:** Dynamically builds a macro-friendly Indian meal plan (including traditional options like Roti, Dal, Sabzi, Idli, Poha, etc.) tailored to support the user's specific biomarker deficiencies or goals.
+* **Zero Layout Friction:** Clean, intuitive, single-page Streamlit UI designed for fast input and immediate readability.
 
 ---
 
-## ⚙️ Getting Started
+## 🛠️ Architecture Workflow
 
-### Prerequisites
+1. **User Input:** The user copy-pastes the text block of their blood test report into a Streamlit `st.text_area`.
+2. **Environment & Context:** `python-dotenv` securely loads the required Llama endpoints and system configurations.
+3. **LangChain Pipeline:** 
+   * A tailored system prompt template instructs the Llama model to act as a supportive wellness assistant and an expert Indian nutritionist.
+   * The text is piped into the Llama model using LangChain.
+4. **Dual-Core Generation:** The LLM processes the data in two clear logical blocks:
+   * **Part 1:** Plain-language health summary mapping flagged values.
+   * **Part 2:** A balanced, practical 7-day or daily Indian diet plan incorporating regional whole foods.
+5. **Streamlit UI Render:** Formats and prints the outputs into interactive markdown tabs for the user.
 
-Make sure you have Python installed, and you will need an API key from [OpenAI/Google/Anthropic].
+---
 
-### Installation
+## 🛠️ Tech Stack & Dependencies
 
-1. **Clone the repository:**
+This application is built entirely using Python, utilizing modern AI framework layers for orchestration and a lightweight, responsive framework for the user interface.
 
-    ```bash
-    git clone [https://github.com/VishwarajsinhKher100/Health_Analysis.git](https://github.com/VishwarajsinhKher100/Health_Analysis.git)
-    cd health_analysis
-    ```
+*   **Orchestration Framework:** `LangChain` — Manages the LLM orchestration pipeline, system prompt templates, and structures the context passing.
+*   **User Interface:** `Streamlit` — Powers the interactive web dashboard, text-input components, and responsive markdown rendering.
+*   **AI Inference Engine:** `Llama 3` Model — Interprets the medical text payload to perform biomarker analysis and compute the personalized diet architecture.
+*   **Configuration & Security:** `python-dotenv` — Securely loads environment variables and API endpoints from isolated `.env` environments.
 
-2. **Create a virtual environment:**
+---
 
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows use: venv\Scripts\activate
-    ```
+## 📋 Prerequisites & Setup
 
-3. **Install dependencies:**
-
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-# Environment Setup
-
-Create a .env file in the root directory of your project and add your API keys:
+### 1. Clone the Repository
 
 ```bash
-LLM_API_KEY=your_actual_api_key_here
+git clone [https://github.com/VishwarajsinhKher100/Health_Analysis.git](https://github.com/VishwarajsinhKher100/Health_Analysis.git)
+cd health_analysis
 ```
 
-Note: The .env file is included in .gitignore to protect your API keys.
+### 2. Environment Configuration
 
-# 💻 Usage
+This project uses python-dotenv to manage model parameters and API configurations. Create a .env file in the root directory:
 
-To run the application locally, execute the following command:
+# 🦙 Llama Model Configuration (Update based on your environment: Groq, Replicate, Ollama, etc.)
+# If using a cloud provider API (e.g., Groq for blazing fast Llama inference):
+GROQ_API_KEY="your_groq_api_key_here"
+
+# If using local Llama via Ollama, point your base URL here:
+# OLLAMA_BASE_URL="http://localhost:11434"
+
+# 🩺 Application Hyperparameters
+MODEL_NAME="llama-3.3-70b-versatile"  # Example Llama model variant
+TEMPERATURE="0.2"                    # Kept low to minimize hallucination of medical metrics
+
+### 3. Installation
+
+Set up a clean virtual environment and install the verified stack:
+
+# Create and activate environment
+python -m venv venv
+source venv/bin/activate  # On Windows use: venv\Scripts\activate
+
+# Install requirements
+pip install -r requirements.txt
+
+## 💻 Usage
+
+To launch the Streamlit server locally, run the following command in your terminal:
 
 ```bash
-streamlit run app.py
+streamlit run main.py
 ```
 
-# 🔒 Security & Privacy
+## 📄 License
 
-Data Masking: This application attempts to strip out personally identifiable information (PII) before sending data to the LLM API.
-
-API Usage: Ensure your API provider's data policy aligns with health data regulations (e.g., checking if data is used for model training).
-
-# 📄 License
-
-Distributed under the MIT License. See LICENSE for more information.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
